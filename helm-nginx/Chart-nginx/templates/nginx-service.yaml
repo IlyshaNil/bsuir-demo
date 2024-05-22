@@ -2,12 +2,13 @@ apiVersion: v1
 kind: Service
 metadata:
   name: nginx-service
+  namespace: bsuir
 spec:
   selector:
     app: nginx
   ports:
-    - protocol: TCP
+    - name: http
+      protocol: TCP
       port: 80
       targetPort: 80
-      nodePort: 31200
-  type: NodePort
+  type: LoadBalancer
