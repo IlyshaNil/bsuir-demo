@@ -32,9 +32,6 @@ spec:
               subPath: nginx.conf
             - name: default-page
               mountPath: /usr/share/nginx/html/
-            - name: "image-demo"
-              mountPath: "/usr/share/nginx/html/"
-              subPath: image-demo.png
           readinessProbe:
             failureThreshold: 3
             httpGet:
@@ -61,10 +58,3 @@ spec:
         - name: nginx-config
           secret:
             secretName: nginx-config
-        - name: image
-          configMap:
-            name: image-demo
-            items:
-            - key: "image-demo"
-              path: "image-demo.png"
-            
